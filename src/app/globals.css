@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@reference utilities;
+
+:root {
+  --accent: 255 115 0;
+}
+
+body {
+  background-color: #000;
+}
+
+/* Your original styles - UNCHANGED */
+.glow {
+  box-shadow: 0 0 60px rgba(255, 115, 0, 0.15);
+}
+
+.btn-primary {
+  @apply rounded-lg px-6 py-3 font-medium text-black;
+  background: rgb(var(--accent));
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.card {
+  @apply rounded-2xl border border-zinc-800 bg-zinc-950 p-6;
+}
+
+/* Your Bob animations - UNCHANGED */
+.bob-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 180, 90, 0.9),
+    rgba(255, 140, 0, 0.4),
+    rgba(0, 0, 0, 0.9)
+  );
+  box-shadow:
+    0 0 40px rgba(255, 140, 0, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.bob-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 160, 80, 0.4);
+  animation: bob-pulse 2.8s ease-out infinite;
+}
+
+.bob-ring.delay {
+  animation-delay: 1.4s;
+}
+
+@keyframes bob-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* FIXED Glows - Compatible with your theme */
+.glow-lg {
+  box-shadow: 0 0 40px rgba(255, 115, 0, 0.4);
+}
